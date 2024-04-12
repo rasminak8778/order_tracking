@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_view_order_tracking_inherited" model="ir.ui.view">
+        <field name="name">stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+                <page name="operations" position="after">
+                <page string="Order Tracking" name="order">
+                    <group>
+                        <field name="loc_id"/>
+                        <field name="des_id"/>
+                    </group>
+                </page>
+                </page>
+        </field>
+    </record>
+</odoo>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<group col="1">-->
+<!--                        <group>-->
+<!--                            <field name="loc_id"/>-->
+<!--                        </group>-->
+<!--                    </group>-->
+<!--                    <group col="2">-->
+<!--                        <group>-->
+<!--                            <field name="des_id"/>-->
+<!--                        </group>-->
+<!--                    </group>-->
+
+<!--<form string="Track Order">-->
+<!--                    <sheet>-->
+<!--                        <div>-->
+<!--                            <table class="table table-striped"/>-->
+<!--                            <thead>-->
+<!--                                <tr>-->
+<!--                                    <th>From</th>-->
+<!--                                    <th>To</th>-->
+<!--                                </tr>-->
+<!--                            </thead>-->
+<!--                            <tbody>-->
+<!--                                <tr t-foreach="records" t-as="record">-->
+<!--                                    <td><span t-field="record.loc_id"/></td>-->
+<!--                                    <td><span t-field="record.des_id"/></td>-->
+<!--                                </tr>-->
+<!--                            </tbody>-->
+<!--                        </div>-->
+<!--                    </sheet>-->
+<!--                    </form>-->

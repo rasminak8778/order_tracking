@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="online_order_list">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure oe_empty">
+                <div class="container">
+                    <br></br>
+                    <input type="hidden" name="csrf_token"
+                           t-att-value="request.csrf_token()"/>
+                    <div class="s_website_form_rows row s_col_no_bgcolor">
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <h3 align="centre">Products Order Tracking</h3>
+                        <form action="/order" method="post">
+                            <input type="hidden" name="csrf_token"
+                           t-att-value="request.csrf_token()"/>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" class="form-control"
+                                           placeholder="Enter Tracking Number"
+                                           name="tracking_number"/>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <button type="submit"
+                                            class="btn btn-primary">Search
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <table class="o_list_table position-relative table table-sm o_list_table_ungrouped table-striped o_portal_my_doc_table mb-0">
+                                <thead data_oe_model="ir.ui.view"
+                                       data-oe-field="arch">
+                                    <tr class="active">
+                                        <th class="text-centre">Tracking No</th>
+                                        <th class="text-centre">From</th>
+                                        <th class="text-end">To</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="website_request or []"
+                                       t-as="web">
+                                        <tr>
+                                            <td>
+                                                <a t-attf-href="/details/{{web.id}}">
+                                                    <t t-out="web.name"/>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <t t-out="web.loc_id.complete_name"/>
+                                            </td>
+                                            <td class="text-end">
+                                                <t t-out="web.des_id.complete_name"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
